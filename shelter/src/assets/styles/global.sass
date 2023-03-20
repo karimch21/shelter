@@ -1,19 +1,25 @@
 @import ./_fonts
 @import ./normalize
+@import ./_vars
 
 html
   box-sizing: border-box
 
 *
   box-sizing: inherit
-  padding: 0
-  margin: 0
 
 body, html
   height: 100%
 
 body
   overflow-x: hidden
+  font-style: normal
+  font-weight: 400
+  font-family: 'Georgia'
+
+ul,li,p,div, h1,h2,h3,h4,h5,h6,section,article,main,*
+  padding: 0
+  margin: 0
 
 img
   max-height: 100%
@@ -33,22 +39,25 @@ ul
   margin: 0 auto
 
 .logo
-  font-family: 'Georgia'
-  font-style: normal
-  font-weight: 400
   font-size: 32px
   line-height: 35px
-  color: #F1CDB3
+  color: beige
   span
     margin-top: 10px
     display: block
     font-family: 'Arial'
-    font-style: normal
-    font-weight: 400
     font-size: 13px
     line-height: 15px
     letter-spacing: 0.1em
     color: #FFFFFF
+
+.btn
+  border-radius: 100px
+  background: $beige
+  font-size: 17px
+  line-height: 22px
+  letter-spacing: 0.06em
+  color: #292929
 
 @import ./header
 @import ./menu
