@@ -1,13 +1,15 @@
+@import ../../assets/styles/_mixin
+@import ../../assets/styles/_vars
+
 .wrapper-top
   background: #000
   background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%)
 
-.promo_box
-  display: flex
-  align-items: center
-  justify-content: space-between
+.promo__box
+  margin-bottom: 80px
+  @include flexMixin
 
-.promo_wrap
+.promo__wrap
   padding-top: 163px
   max-width: 460px
   width: 100%
@@ -19,8 +21,6 @@
   line-height: 57px
   font-style: normal
   font-weight: 400
-  display: flex
-  align-items: center
   color: #FFFFFF
 
 .promo_text
@@ -32,5 +32,36 @@
 .promo_btn
   padding: 15px 45px
 
-.promo_img-wrap
+.promo__img-wrap
   max-width: 698px
+
+.about__container
+  max-width: 854px
+  width: 100%
+  margin: 0 auto
+  @include flexMixin
+
+.about__img-wrap
+  max-width: 300px
+  margin-right: 125px
+
+.about__title
+  max-width: 370px
+  margin-bottom: 25px
+  font-style: normal
+  font-weight: 400
+  font-size: 35px
+  line-height: 45px
+  letter-spacing: 0.06em
+  color: #545454
+
+.about__text
+  font-family: 'Arial'
+  font-style: normal
+  font-weight: 400
+  font-size: 15px
+  line-height: 24px
+  color: #4C4C4C
+
+.about__text_mb
+  margin-bottom: 25px
