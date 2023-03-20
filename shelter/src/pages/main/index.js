@@ -1,4 +1,4 @@
 import './index.html'
-import '../../assets/styles/global.css'
+import '../../assets/styles/global.sass'
 import '../../assets/js/global.js'
-import './style.css'
+import './style.sass'
