@@ -1,0 +1,55 @@
+
+.footer
+  background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20
+
+.footer__wrap
+  padding: 56px 0 0px
+  @include flexMixin
+
+.footer__content
+  max-width: 740px
+  width: 100%
+  @include flexMixin
+
+.footer__contact
+  max-width: 278px
+  width: 100%
+
+.footer__title
+  margin-bottom: 43px
+  max-width: 278px
+  color: #fff
+
+.contact__item
+  &:not(:last-of-type)
+    margin-bottom: 43px
+
+.location__items
+  max-width: 302px
+  width: 100%
+
+.location__item
+  &:not(:last-of-type)
+    margin-bottom: 33px
+
+.contact__icon, .location__icon
+  display: inline-block
+  font-size: 0
+  margin-right: 20px
+  width: 40px
+
+.contact__link, .location__link
+  @include flexMixin(center, flex-start)
+  @include georgiaStyle
+  color: #F1CDB3
+
+.location__icon
+  display: block
+  width: 22px
+  height: 32px
+
+.footer__img-wrap
+  max-width: 300px
+
+.footer__img
+  font-size: 0
