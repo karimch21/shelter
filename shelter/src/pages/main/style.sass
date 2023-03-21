@@ -41,6 +41,9 @@
   margin: 0 auto
   @include flexMixin
 
+.about__box
+  margin-bottom: 100px
+
 .about__img-wrap
   max-width: 300px
   margin-right: 125px
@@ -48,12 +51,6 @@
 .about__title
   max-width: 370px
   margin-bottom: 25px
-  font-style: normal
-  font-weight: 400
-  font-size: 35px
-  line-height: 45px
-  letter-spacing: 0.06em
-  color: #545454
 
 .about__text
   font-family: 'Arial'
@@ -65,3 +62,77 @@
 
 .about__text_mb
   margin-bottom: 25px
+
+.friends
+  background: #F6F6F6
+
+.friends__container
+  padding-top: 80px
+  padding-bottom: 100px
+
+.friends__title
+  margin: 0 auto
+  margin-bottom: 60px
+  max-width: 400px
+  text-align: center
+
+.friends__slider-box
+  position: relative
+
+.friends__slider-wrap
+  max-width: 970px
+  width: 100%
+  margin: 0 auto
+  margin-bottom: 60px
+
+.friends__slider
+  @include flexMixin
+  width: 100%
+
+.friends__slider-item
+  width: 270px
+  overflow-x: hidden
+  background-color: #FAFAFA
+  border-radius: 9px
+
+.friends__slider-img
+  margin-bottom: 30px
+
+.friends__slider-title
+  margin-bottom: 30px
+  @include georgiaStyle
+  text-align: center
+
+.friends__slider-btn-control
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  width: 52px
+  height: 52px
+  border: 2px solid #F1CDB3
+  border-radius: 100px
+  @include flexMixin(center, center)
+  svg
+    width: 14px
+    height: 6px
+
+.friends__slider-btn-prev
+  left: 0px
+
+.friends__slider-btn-next
+  right: 0px
+
+.friends__slider-content
+  padding: 0 41px 30px 41px
+
+.friends__slider-link
+  padding: 15px 44px 15px 44px
+  border: 2px solid #F1CDB3
+  border-radius: 100px
+
+.friends__slider-link-wrap
+  text-align: center
+
+.friends__slider-link_rest
+  background-color: #F1CDB3
+  margin: 0 auto

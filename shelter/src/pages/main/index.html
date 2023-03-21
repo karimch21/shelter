@@ -76,26 +76,13 @@
     </div>
   </section>
   <section class="friends">
-    <div class="container">
-      <h2 class="friends__title">
+    <div class="container friends__container">
+      <h2 class="friends__title title">
         Our friends who
         are looking for a house
       </h2>
       <div class="friends__slider-box">
         <div class="friends__slider-wrap">
-          <div class="friends__slider-btns">
-            <button class="friends__slider-btn-prev">
-              <svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
-              </svg>
-            </button>
-            <button class="friends__slider-btn-next">
-              <svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 4V2L11 2V0L14 3L11 6V4L0 4Z" fill="#292929" />
-              </svg>
-            </button>
-          </div>
-
           <div class="slider friends__slider">
 
             <div class="slider__item friends__slider-item">
@@ -106,9 +93,9 @@
                 <div class="slider__title friends__slider-title">
                   Katrine
                 </div>
-                <button class="friends__slider-btn">
+                <a href="#" class="friends__slider-link">
                   Learn more
-                </button>
+                </a>
               </div>
             </div>
 
@@ -120,9 +107,9 @@
                 <div class="slider__title friends__slider-title">
                   Jennifer
                 </div>
-                <button class="friends__slider-btn">
+                <a href="#" class="friends__slider-link">
                   Learn more
-                </button>
+                </a>
               </div>
             </div>
 
@@ -134,15 +121,30 @@
                 <div class="slider__title friends__slider-title">
                   Woody
                 </div>
-                <button class="friends__slider-btn">
+                <a href="#" class="friends__slider-link">
                   Learn more
-                </button>
+                </a>
               </div>
             </div>
 
           </div>
+
+          <div class="friends__slider-btns">
+            <button class="friends__slider-btn-prev friends__slider-btn-control">
+              <svg viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
+              </svg>
+            </button>
+            <button class="friends__slider-btn-next friends__slider-btn-control">
+              <svg viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 4V2L11 2V0L14 3L11 6V4L0 4Z" fill="#292929" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <a href="#" class="friends__slider-link">Get to know the rest</a>
+        <div class="friends__slider-link-wrap">
+          <a href="#" class="friends__slider-link friends__slider-link_rest">Get to know the rest</a>
+        </div>
       </div>
     </div>
   </section>
