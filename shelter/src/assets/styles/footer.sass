@@ -3,20 +3,21 @@
   background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20
 
 .footer__wrap
-  padding: 56px 0 0px
-  @include flexMixin
+  padding-top: 36px
+  @include flexMixin(flex-start)
 
 .footer__content
+  padding-top: 20px
   max-width: 740px
   width: 100%
-  @include flexMixin
+  @include flexMixin(flex-start)
 
 .footer__contact
   max-width: 279px
   width: 100%
 
 .footer__location
-  max-width: 307px
+  max-width: 301px
   width: 100%
 
 .footer__title
@@ -46,6 +47,9 @@
   @include flexMixin(center, flex-start)
   @include georgiaStyle
   color: #F1CDB3
+
+.location__title
+  margin-bottom: 32px
 
 .location__icon
   display: block

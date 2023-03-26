@@ -52,6 +52,7 @@
 .about__title
   max-width: 370px
   margin-bottom: 25px
+  text-align: left
 
 .about__text
   font-family: 'Arial'
@@ -73,7 +74,7 @@
 
 .friends__title
   margin: 0 auto
-  margin-bottom: 60px
+  margin-bottom: 53px
   max-width: 400px
   text-align: center
 
@@ -81,7 +82,7 @@
   position: relative
 
 .friends__slider-wrap
-  max-width: 970px
+  max-width: 991px
   width: 100%
   margin: 0 auto
   margin-bottom: 60px
@@ -97,7 +98,7 @@
   border-radius: 9px
 
 .friends__slider-img
-  margin-bottom: 30px
+  margin-bottom: 26px
 
 .friends__slider-title
   margin-bottom: 30px
@@ -106,7 +107,7 @@
 
 .friends__slider-btn-control
   position: absolute
-  top: 50%
+  top: 40%
   transform: translateY(-50%)
   width: 52px
   height: 52px
@@ -127,9 +128,14 @@
   padding: 0 41px 30px 41px
 
 .friends__slider-link
-  padding: 15px 44px 15px 44px
+  padding: 15px 42px 10px 44px
   border: 2px solid #F1CDB3
   border-radius: 100px
+  @include georgiaStyle
+  font-size: 17px
+  line-height: 22px
+  letter-spacing: 0.06em
+  color: #292929
 
 .friends__slider-link-wrap
   text-align: center
@@ -145,8 +151,9 @@
 .help__title
   margin: 0 auto
   margin-bottom: 60px
-  max-width: 308px
+  max-width: 310px
   width: 100%
+  text-align: center
 
 .help__block
   max-width: 1026px
@@ -154,7 +161,7 @@
   margin: 0 auto
 
 .help__items
-  @include flexMixin(flex-start)
+  @include flexMixin
   max-width: 1026px
   margin: 0 auto
   width: 100%
@@ -163,7 +170,7 @@
   max-width: 865px
 
 .help__items_mb
-  margin-bottom: 52px
+  margin-bottom: 60px
 
 .help__img
   max-width: 60px
@@ -196,6 +203,7 @@
 .donation__title
   max-width: 300px
   margin-bottom: 20px
+  text-align: left
 
 .donation__bank-info
   margin-bottom: 20px
@@ -204,12 +212,17 @@
   line-height: 17px
   letter-spacing: 0.06em
   color: #545454
+  display: flex
+  align-items: flex-start
 
 .donation__card-info
+  max-width: 349px
   margin-bottom: 20px
-  padding: 10px 15px
+  padding: 10px 14px
+  padding-right: 9px 
   background: #F1CDB3
   border-radius: 9px
+  @include flexMixin(center, flex-start)
   @include georgiaStyle
 
 .donation__card-icon
