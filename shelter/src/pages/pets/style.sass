@@ -1,3 +1,6 @@
+@import ../../assets/styles/_mixin
+@import ../../assets/styles/_vars
+
 .menu__items
   .menu__link
     color: #545454
@@ -6,3 +9,64 @@
   color: #545454
   span
     color: #545454
+
+.friends__container
+  margin-bottom: 100px
+
+.friends__title
+  max-width: 400px
+  margin: 0 auto
+  margin-bottom: 45px
+
+.friends__list
+  margin-bottom: 30px
+  @include flexMixin
+  flex-wrap: wrap
+
+.friends__item
+  background: #FAFAFA
+  border-radius: 9px
+  margin-bottom: 30px
+
+.frindes__img-wrap
+  max-width: 270px
+  width: 100%
+  font-size: 0
+
+.friends__item-content
+  padding: 30px 41px
+
+.friends__item-title
+  text-align: center
+  margin-bottom: 30px
+  @include  georgiaStyle
+
+.friends__item-link
+  padding: 15px 45px
+  border-radius: 100px
+  border: 2px solid #F1CDB3
+  font-size: 17px
+  line-height: 22px
+  letter-spacing: 0.06em
+  color: #292929
+
+.pagination
+  &__list
+    @include flexMixin
+    max-width: 340px
+    width: 100%
+    margin: 0 auto
+  &__link
+    padding: 13px 12px 14px 11px
+    border: 2px solid #F1CDB3
+    border-radius: 100px
+    min-width: 52px
+    min-height: 52px
+    @include flexMixin(center, center)
+    text-align: center
+    @include georgiaStyle
+    color: #292929
+  &__num
+    background-color: #F1CDB3
+  &__link_disabled
+    border: 2px solid #CDCDCD
