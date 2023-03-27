@@ -29,6 +29,13 @@
   background: #FAFAFA
   border-radius: 9px
   margin-bottom: 30px
+  overflow: hidden
+  &:hover
+    box-shadow: 0 0 5px #bbbbbb
+  &:hover  .friends__item-title
+    text-shadow: 0 0px 5px #bbbbbb
+  &:hover .friends__item-link
+    background-color: #F1CDB3
 
 .frindes__img-wrap
   max-width: 270px
@@ -51,6 +58,9 @@
   line-height: 22px
   letter-spacing: 0.06em
   color: #292929
+  transition: background 0.5s
+  &:hover
+    background: #FDDCC4
 
 .pagination
   &__list
@@ -68,6 +78,9 @@
     text-align: center
     @include georgiaStyle
     color: #292929
+    transition: background-color 0.5s
+    &:not(.pagination__link_disabled, .pagination__num_active):hover
+      background-color: #f7c09a
   &__num
     background-color: #F1CDB3
   &__link_disabled
