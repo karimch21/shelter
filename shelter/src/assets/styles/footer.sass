@@ -47,6 +47,13 @@
   @include flexMixin(center, flex-start)
   @include georgiaStyle
   color: #F1CDB3
+  transition: color 0.5s
+  &:hover
+    color: #a3785a
+  & path
+    transition: fill 0.5s
+  &:hover path
+    fill: #a3785a
 
 .location__title
   margin-bottom: 32px

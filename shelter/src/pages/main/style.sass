@@ -32,6 +32,9 @@
 
 .promo_btn
   padding: 15px 45px
+  transition: box-shadow 0.5s
+  &:hover
+    box-shadow: inset 0 0 15px #000000d2
 
 .promo__img-wrap
   max-width: 698px
@@ -96,11 +99,19 @@
   overflow-x: hidden
   background-color: #FAFAFA
   border-radius: 9px
+  transition: all 0.5s
+  &:hover
+    box-shadow: 0 0 5px #bbbbbb
+  &:hover  .friends__slider-title
+    text-shadow: 0 0px 5px #bbbbbb
+  &:hover .friends__slider-link
+    background-color: #F1CDB3
 
 .friends__slider-img
   margin-bottom: 26px
 
 .friends__slider-title
+  transition: all 0.5s
   margin-bottom: 30px
   @include georgiaStyle
   text-align: center
@@ -113,10 +124,15 @@
   height: 52px
   border: 2px solid #F1CDB3
   border-radius: 100px
+  transition: background 0.5s
   @include flexMixin(center, center)
   svg
     width: 14px
     height: 6px
+
+.friends__slider-btn-control:hover
+  cursor: pointer
+  background: #FDDCC4
 
 .friends__slider-btn-prev
   left: 0px
@@ -128,6 +144,7 @@
   padding: 0 41px 30px 41px
 
 .friends__slider-link
+  transition: background-color 0.5s
   padding: 15px 42px 10px 44px
   border: 2px solid #F1CDB3
   border-radius: 100px
@@ -136,6 +153,9 @@
   line-height: 22px
   letter-spacing: 0.06em
   color: #292929
+  &:hover
+    cursor: pointer
+    background-color: #FDDCC4
 
 .friends__slider-link-wrap
   text-align: center
@@ -219,11 +239,14 @@
   max-width: 349px
   margin-bottom: 20px
   padding: 10px 14px
-  padding-right: 9px 
+  padding-right: 9px
   background: #F1CDB3
   border-radius: 9px
   @include flexMixin(center, flex-start)
   @include georgiaStyle
+  transition: background 0.5s
+  &:hover
+    background: #dab092
 
 .donation__card-icon
   display: inline-block

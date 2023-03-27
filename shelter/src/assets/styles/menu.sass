@@ -8,6 +8,8 @@
     transition: opacity 0.5s
     &:hover::after
       opacity: 1
+    &:not(&_active)::after
+      background: #808080
     &::after
       content: ""
       width: 100%
@@ -16,7 +18,7 @@
       position: absolute
       left: 0
       bottom: -3px
-      transition: opacity 0.5s
+      transition: all 0.5s
       opacity: 0
     &_active::after
       opacity: 1
