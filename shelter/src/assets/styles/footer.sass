@@ -70,3 +70,41 @@
 
 .footer__img
   font-size: 0
+
+@media (max-width: 1130px)
+  .footer__wrap
+    flex-wrap: wrap
+    justify-content: center
+  .footer__content
+    margin-bottom: 65px
+
+@media (max-width: 768px)
+  .footer__content
+    padding-top: 30px
+    max-width: 640px
+
+@media (max-width: 670px)
+  .footer__contact,
+  .footer__location
+    max-width: 100%
+    margin: 0 auto
+  .footer__content
+    flex-wrap: wrap
+  .footer__contact
+    margin-bottom: 40px
+  .footer__title
+    max-width: 100%
+    text-align: center
+  .footer__items
+    max-width: 100%
+    display: flex
+    align-items: center
+    flex-direction: column
+  .footer__title
+    max-width: 98%
+  .location__title
+    margin-bottom: 40px
+  .footer__img-wrap
+    max-width: 260px
+  .footer__content
+    margin-bottom: 50px
