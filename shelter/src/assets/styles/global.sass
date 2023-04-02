@@ -27,6 +27,7 @@ ul,li,p,div, h1,h2,h3,h4,h5,h6,section,article,main,*
 img
   max-height: 100%
   font-size: 0
+  display: block
 
 a
   display: inline-block
@@ -125,9 +126,18 @@ button
     display: block
   .menu
     display: none
+
+@media (max-width:480px)
+  .title
+    font-size: 28px
+    line-height: 30px
+
 @media (max-width: 320px)
   .container
     padding: 0 10px
   .header__block
     padding-left: 10px
     padding-right: 10px
+  .title
+    font-size: 26px
+    line-height: 32px
