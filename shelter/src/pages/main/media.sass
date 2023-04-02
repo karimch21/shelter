@@ -10,6 +10,23 @@
     &__img-wrap
       margin: 0 auto
 
+@media (max-width: 1050px)
+  .friends__slider
+    overflow-x: hidden
+  .friends__slider-item
+    width: 46%
+    flex-shrink: 0
+  .friends__slider-wrap
+    margin-bottom: 67px
+  .friends__slider-item
+    margin-right: 7%
+  .friends__slider-img
+    margin: 0 auto
+  .slider__img-box
+    margin-bottom: 33px
+  .friends__slider-content
+    text-align: center
+
 @media (max-width: 768px)
   .promo__wrap
     display: flex
@@ -41,6 +58,26 @@
   .promo_text
     text-align: center
     font-family: 'Arial'
+  .friends__slider
+    margin-bottom: 20px
+  .friends__slider-box
+    padding: 0
+  .friends__slider-btns
+    margin: 0 auto
+    max-width: 183px
+    width: 100%
+    @include flexMixin
+  .friends__slider-btn-control
+    position: static
+    top: 0%
+    transform: translateY(0%)
+  .friends__slider-item
+    width: 48%
+    margin-right: 3%
+
+@media (max-width: 600px)
+  .friends__slider-item
+    width: 100%
 
 @media (max-width:480px)
   .promo_title
@@ -75,3 +112,12 @@
     max-width: 260px
   .about__content
     margin-bottom: 37px
+  .friends__container
+    padding-top: 42px
+  .about__box
+    margin-bottom: 42px
+  .friends__title
+    margin-bottom: 40px
+  .friends__slider-wrap
+    margin-bottom: 40px
+    max-width: 276px
