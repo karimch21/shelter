@@ -18,6 +18,7 @@ body
   font-style: normal
   font-weight: 400
   font-family: 'Georgia'
+  font-size: 16px
 
 ul,li,p,div, h1,h2,h3,h4,h5,h6,section,article,main,*
   padding: 0
@@ -26,6 +27,8 @@ ul,li,p,div, h1,h2,h3,h4,h5,h6,section,article,main,*
 img
   max-height: 100%
   font-size: 0
+  display: block
+  width: 100%
 
 a
   display: inline-block
@@ -81,6 +84,61 @@ button
   letter-spacing: 0.06em
   color: #545454
 
+.burger-menu
+  display: none
+  position: relative
+  width: 30px
+  height: 22px
+  cursor: pointer
+  &::after,
+  &::before
+    content: ""
+  &::after,
+  &::before,
+  & div
+    height: 2px
+    background-color: #F1CDB3
+    width: 100%
+    position: absolute
+    left: 0
+  &::after
+    top: 0
+  &::before
+    bottom: 0
+  & div
+    top: 50%
+    transform: translateY(-50%)
+
 @import ./header
 @import ./menu
 @import ./footer
+
+@media (max-width: 768px)
+  .container
+    padding: 0 30px
+  .logo
+    font-weight: 400
+    font-size: 32px
+    line-height: 35px
+    color: #F1CDB3
+
+@media (max-width: 750px)
+  .burger-menu
+    display: block
+  .menu
+    display: none
+
+@media (max-width:480px)
+  .title
+    font-size: 28px
+    line-height: 30px
+
+@media (max-width: 320px)
+  .container
+    padding: 0 10px
+  .header__block
+    padding-left: 10px
+    padding-right: 10px
+  .title
+    font-size: 25px
+    line-height: 32px
