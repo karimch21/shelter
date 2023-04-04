@@ -42,6 +42,19 @@ button
   background-color: transparent
   display: inline-block
 
+.body_lock
+  overflow-y: hidden
+  position: relative
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: rgba(41, 41, 41, 0.6)
+    z-index: 1
+
 .container
   padding: 0 40px
   max-width: 1280px
@@ -90,6 +103,7 @@ button
   width: 30px
   height: 22px
   cursor: pointer
+  transition: transform 0.5s
   &::after,
   &::before
     content: ""
@@ -108,6 +122,8 @@ button
   & div
     top: 50%
     transform: translateY(-50%)
+  &_active
+    transform: rotate(90deg)
 
 @import ./header
 @import ./menu
@@ -125,8 +141,34 @@ button
 @media (max-width: 750px)
   .burger-menu
     display: block
+    z-index: 6
   .menu
-    display: none
+    position: absolute
+    right: -100%
+    top: 0
+    transition: right 0.5s
+    z-index: 4
+  .menu_active
+    right: 0%
+    transition: right 0.5s
+  .menu__items
+    padding: 0 30px 10px 39px
+    flex-direction: column
+    padding-top: 252px
+    max-width: 320px
+    width: 100%
+    background: #292929
+    overflow-y: auto
+    height: 100vh
+  .menu__items .menu__item + .menu__item
+    margin-left: 0px
+  .menu__item + .menu__item .menu__link
+    display: block
+    margin-top: 43px
+  .menu__items .menu__link
+    font-size: 32px
+    line-height: 51px
+    color: #CDCDCD
 
 @media (max-width:480px)
   .title
