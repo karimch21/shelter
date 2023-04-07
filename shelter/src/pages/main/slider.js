@@ -42,6 +42,7 @@ function clickBtnNextHandler() {
   sliderItemsBox.appendChild(createNewSliderItems())
 }
 function clickBtnPrevHandler() {
+  generatePrevSliderItem()
   const sliders = document.querySelectorAll('.slider');
   if (sliders.length > 1) sliders[sliders.length - 1].remove()
   for (let slider of sliders) {
@@ -179,6 +180,7 @@ function checkAmountSlides() {
 }
 
 function generateNextSliderItem() {
+  // нужна проверка на налчие в массиве next, если есть, то они становится curr, а next очищается и карточки не генерируются 
   let i = 0;
   let amountSlide = checkAmountSlides();
   slidesPrevName = JSON.parse(JSON.stringify(slidesCurrName))
@@ -203,6 +205,35 @@ function generateNextSliderItem() {
     // console.log('prev', slidesPrevName)
     nextSlides = []
     slidesNextName = []
+  }
+}
+
+function generatePrevSliderItem() {
+  // нужна проверка на налчие в массиве prev, если есть, то они становится curr, а prev очищается и карточки не генерируются 
+  let i = 0;
+  let amountSlide = checkAmountSlides();
+  slidesNextName = JSON.parse(JSON.stringify(slidesCurrName))
+
+  while (i < amountSlide) {
+    let randomNum = getRandomNum(0, cards.length - 1);
+    if (!slidesCurrName.includes(cards[randomNum].name) && !slidesNextName.includes(cards[randomNum].name && !slidesPrevName.includes(cards[randomNum].name))) {
+      if (!slidesPrevName.includes(cards[randomNum].name)) {
+        slidesPrevName.push(cards[randomNum].name)
+        prevSlides.push(cards[randomNum])
+        i++
+      }
+    }
+  }
+
+  if (i === amountSlide) {
+    console.log('prev', slidesPrevName)
+    nextSlides = JSON.parse(JSON.stringify(currSlides))
+    currSlides = JSON.parse(JSON.stringify(prevSlides))
+    slidesNextName = JSON.parse(JSON.stringify(slidesCurrName))
+    slidesCurrName = JSON.parse(JSON.stringify(slidesPrevName))
+    console.log('next', slidesNextName)
+    prevSlides = []
+    slidesPrevName = []
   }
 }
 
