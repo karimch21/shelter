@@ -185,6 +185,15 @@ function generateNextSliderItem() {
   let amountSlide = checkAmountSlides();
   slidesPrevName = JSON.parse(JSON.stringify(slidesCurrName))
 
+  if (slidesNextName.length > 0) {
+    slidesCurrName = JSON.parse(JSON.stringify(slidesNextName))
+    currSlides = JSON.parse(JSON.stringify(nextSlides))
+    console.log(slidesCurrName, 1234)
+    slidesNextName = []
+    nextSlides = []
+    return
+  }
+
   while (i < amountSlide) {
     let randomNum = getRandomNum(0, cards.length - 1);
     if (!slidesCurrName.includes(cards[randomNum].name) && !slidesNextName.includes(cards[randomNum].name && !slidesPrevName.includes(cards[randomNum].name))) {
@@ -197,12 +206,12 @@ function generateNextSliderItem() {
   }
 
   if (i === amountSlide) {
-    // console.log('next', slidesNextName)
+    console.log('next, next-btn', slidesNextName)
     prevSlides = JSON.parse(JSON.stringify(currSlides))
     currSlides = JSON.parse(JSON.stringify(nextSlides))
     slidesPrevName = JSON.parse(JSON.stringify(slidesCurrName))
     slidesCurrName = JSON.parse(JSON.stringify(slidesNextName))
-    // console.log('prev', slidesPrevName)
+    console.log('prev, next-btn', slidesPrevName)
     nextSlides = []
     slidesNextName = []
   }
@@ -213,6 +222,14 @@ function generatePrevSliderItem() {
   let i = 0;
   let amountSlide = checkAmountSlides();
   slidesNextName = JSON.parse(JSON.stringify(slidesCurrName))
+  if (slidesPrevName.length > 0) {
+    currSlides = JSON.parse(JSON.stringify(prevSlides))
+    slidesCurrName = JSON.parse(JSON.stringify(slidesPrevName));
+    console.log('curr, prev-btn', slidesCurrName)
+    slidesPrevName = []
+    prevSlides = []
+    return
+  }
 
   while (i < amountSlide) {
     let randomNum = getRandomNum(0, cards.length - 1);
@@ -226,12 +243,12 @@ function generatePrevSliderItem() {
   }
 
   if (i === amountSlide) {
-    console.log('prev', slidesPrevName)
+    console.log('prev, prev-btn', slidesPrevName)
     nextSlides = JSON.parse(JSON.stringify(currSlides))
     currSlides = JSON.parse(JSON.stringify(prevSlides))
     slidesNextName = JSON.parse(JSON.stringify(slidesCurrName))
     slidesCurrName = JSON.parse(JSON.stringify(slidesPrevName))
-    console.log('next', slidesNextName)
+    console.log('next, prev-btn', slidesNextName)
     prevSlides = []
     slidesPrevName = []
   }
@@ -248,6 +265,6 @@ function generateCurrentSliderItem() {
       i++
     }
   }
-  console.log(slidesCurrName)
+  console.log(slidesCurrName, 'currName')
   console.log(currSlides)
 }
