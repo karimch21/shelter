@@ -39,7 +39,7 @@ function clickBtnNextHandler() {
     slider.classList.add('sldier_hide-prev')
   }
 
-  sliderItemsBox.appendChild(createNewSliderItems())
+  sliderItemsBox.appendChild(createNextSlides())
 }
 function clickBtnPrevHandler() {
   generatePrevSliderItem()
@@ -52,7 +52,7 @@ function clickBtnPrevHandler() {
     slider.classList.add('sldier_hide-next')
   }
 
-  sliderItemsBox.prepend(createNewPrevSliderItems())
+  sliderItemsBox.prepend(createPrevSlides())
 
 }
 
@@ -162,6 +162,57 @@ function createNewPrevSliderItems() {
   return c
 }
 
+function createSlides({ name, img }) {
+  let slide = document.createElement('div');
+  let slideImgBox = document.createElement('div');
+  let slideImg = document.createElement('img');
+  let slideContent = document.createElement('div')
+  let slideTitle = document.createElement('div');
+  let slideLink = document.createElement('a')
+
+  slide.classList.add('slider__item', 'friends__slider-item')
+  slideImgBox.classList.add('slider__img-box')
+  slideImg.classList.add('slider__img', 'friends__slider-img')
+  slideContent.classList.add('slider__content', 'friends__slider-content')
+  slideTitle.classList.add('slider__title', 'friends__slider-title')
+  slideLink.classList.add('friends__slider-link')
+
+  slideTitle.textContent = name;
+  slideImg.src = img;
+  slideLink.textContent = 'Learn more'
+
+  slide.appendChild(slideImgBox)
+  slideImgBox.appendChild(slideImg)
+  slideContent.appendChild(slideTitle)
+  slideContent.appendChild(slideLink)
+  slide.appendChild(slideContent)
+
+  return slide;
+}
+
+function createNextSlides() {
+  let slider = document.createElement('div');
+  slider.classList.add('slider', 'friends__slider', 'slider_show-next', 'slider_delay')
+
+  for (let i = 0; i < currSlides.length; i++) {
+    let slide = createSlides(currSlides[i]);
+    slider.appendChild(slide);
+  }
+  console.log(11111111, currSlides)
+  return slider
+}
+function createPrevSlides() {
+  let slider = document.createElement('div');
+  slider.classList.add('slider', 'friends__slider', 'slider_show-prev', 'slider_delay')
+
+  for (let i = 0; i < currSlides.length; i++) {
+    let slide = createSlides(currSlides[i]);
+    slider.appendChild(slide);
+  }
+
+  return slider
+}
+
 function getRandomNum(min, max) {
   return Math.floor(min + Math.random() * (max + 1 - min))
 }
@@ -184,11 +235,12 @@ function generateNextSliderItem() {
   let i = 0;
   let amountSlide = checkAmountSlides();
   slidesPrevName = JSON.parse(JSON.stringify(slidesCurrName))
+  prevSlides = JSON.parse(JSON.stringify(currSlides))
 
   if (slidesNextName.length > 0) {
     slidesCurrName = JSON.parse(JSON.stringify(slidesNextName))
     currSlides = JSON.parse(JSON.stringify(nextSlides))
-    console.log(slidesCurrName, 1234)
+    console.log(slidesCurrName, currSlides, slidesNextName, 1234)
     slidesNextName = []
     nextSlides = []
     return
@@ -222,6 +274,8 @@ function generatePrevSliderItem() {
   let i = 0;
   let amountSlide = checkAmountSlides();
   slidesNextName = JSON.parse(JSON.stringify(slidesCurrName))
+  nextSlides = JSON.parse(JSON.stringify(currSlides))
+
   if (slidesPrevName.length > 0) {
     currSlides = JSON.parse(JSON.stringify(prevSlides))
     slidesCurrName = JSON.parse(JSON.stringify(slidesPrevName));
