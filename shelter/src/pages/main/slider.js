@@ -28,55 +28,72 @@ window.addEventListener('resize', () => {
 })
 
 function clickBtnNextHandler() {
-  console.log('NEXT')
-  if (nextSlides.length === 0) {
-    console.log(9999)
-    generateNextSliderItem()
-    const sliders = document.querySelectorAll('.slider');
-    if (sliders.length > 1) sliders[0].remove()
-    for (let slider of sliders) {
-      slider.classList.remove('slider_show-next')
-      slider.classList.remove('slider_show-prev')
-      slider.classList.remove('sldider_hide-next')
-      slider.classList.add('slider_hide-prev')
-    }
-    console.log(111)
-    sliderItemsBox.appendChild(createNextSlides())
+  console.log(`
+  `)
+  console.log('--------NEXT-------')
 
-    return
+  console.log('NEXT111', 'next -', nextSlides, 'curr - ', currSlides, 'prev - ', prevSlides)
+  console.log('--------NEXT-------')
+  console.log(`
+  `)
+
+  let sliders = document.querySelectorAll('.slider');
+  if (sliders.length === 2 && nextSlides.length > 0) {
+    sliders[sliders.length - 1].remove()
+    sliders = document.querySelectorAll('.slider');
+    console.log(77777777)
+  }
+  generateNextSliderItem()
+
+  if (sliders.length > 1) {
+    console.log('0', 5555)
+    sliders[0].remove()
   }
 
-  const sliders = document.querySelectorAll('.slider');
-  console.log(1212)
-  sliders[0].classList.remove('slider_show-prev')
-  sliders[0].classList.add('slider_hide-prev')
-  sliders[1].classList.remove('slider_hide-next')
-  sliders[1].classList.add('slider_show-next')
-  prevSlides = JSON.parse(JSON.stringify(nextSlides))
-  slidesPrevName = JSON.parse(JSON.stringify(slidesNextName))
-  nextSlides = []
-  slidesNextName = []
+  for (let slide of sliders) {
+    slide.classList.remove('slider_hide-next')
+    slide.classList.remove('slider_show-prev')
+    slide.classList.remove('slider_show-next')
+    slide.classList.add('slider_hide-prev')
+  }
 
-  console.log('curcur ', slidesCurrName)
+
+  sliderItemsBox.appendChild(createNextSlides());
 }
 
 function clickBtnPrevHandler() {
-  if (slidesNextName.length === 0) {
-    generatePrevSliderItem()
+
+  console.log(`
+  `)
+  console.log('--------PREV-------')
+
+  console.log('PREV111', 'next -', nextSlides, 'curr - ', currSlides, 'prev - ', prevSlides)
+  console.log('--------PREV-------')
+  console.log(`
+  `)
+
+  let sliders = document.querySelectorAll('.slider');
+  if (sliders.length === 2 && prevSlides.length > 0) {
+    sliders[0].remove()
+    sliders = document.querySelectorAll('.slider');
+    console.log(77777777)
+  }
+  generatePrevSliderItem()
+
+  if (sliders.length > 1) {
+    console.log('0', 5555)
+    sliders[sliders.length - 1].remove()
   }
 
-  const sliders = document.querySelectorAll('.slider');
-
-  for (let slider of sliders) {
-    slider.classList.remove('slider_show-prev')
-    slider.classList.remove('slider_hide-prev')
-    slider.classList.remove('.slider_show-next')
-
+  for (let slide of sliders) {
+    slide.classList.remove('slider_hide-next')
+    slide.classList.remove('slider_show-prev')
+    slide.classList.remove('slider_show-next')
+    slide.classList.add('slider_hide-next')
   }
-  sliders[0].classList.add('slider_show-prev')
-  sliders[1].classList.remove('slider_show-next')
-  sliders[1].classList.add('slider_hide-next')
 
+
+  sliderItemsBox.prepend(createPrevSlides());
 }
 
 
@@ -178,7 +195,7 @@ function generateNextSliderItem() {
   }
 
   if (i === amountSlide) {
-    console.log('next, next-btn', slidesNextName)
+    console.log('next, next-btn', slidesNextName, nextSlides)
     prevSlides = JSON.parse(JSON.stringify(currSlides))
     currSlides = JSON.parse(JSON.stringify(nextSlides))
     slidesPrevName = JSON.parse(JSON.stringify(slidesCurrName))
