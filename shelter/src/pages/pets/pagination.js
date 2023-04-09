@@ -5,12 +5,14 @@ const dataFrinedsItem = {
   second: [],
   third: []
 }
+const friendsList = document.querySelector('.friends__list');
 
 window.addEventListener('load', loadWindowHandler);
 window.addEventListener('resize', resizeWindowHandler);
 
 function loadWindowHandler() {
   loadDataFriendsItem()
+  appendFrinedItem()
 }
 function resizeWindowHandler() {
   // if (currentWidthWindow >= 769) {
@@ -75,6 +77,56 @@ function sortingMiniFrinedItem(pages, cardsItem, dataItem) {
 
 function getRandomNum(min, max) {
   return Math.floor(min + Math.random() * (max + 1 - min))
+}
+
+function getFriendsItem(page = 0) {
+  let currentWidthWindow = document.documentElement.clientWidth;
+  if (currentWidthWindow >= 769) {
+    return dataFrinedsItem.one[page]
+  }
+  if (currentWidthWindow <= 768 && currentWidthWindow >= 321) {
+    return dataFrinedsItem.second[page]
+  }
+  return dataFrinedsItem.third[page]
+}
+
+function createFriendsItem({ name, img }) {
+  let friendsItem = document.createElement('div');
+  let frindesImgWrap = document.createElement('div');
+  let friendsImg = document.createElement('img');
+  let friendsItemContent = document.createElement('div');
+  let friendsItemTitle = document.createElement('div');
+  let friendsItemLink = document.createElement('a');
+
+  friendsItem.classList.add('friends__item')
+  frindesImgWrap.classList.add('frindes__img-wrap')
+  friendsImg.classList.add('friends__img')
+  friendsItemContent.classList.add('friends__item-content')
+  friendsItemTitle.classList.add('friends__item-title')
+  friendsItemLink.classList.add('friends__item-link')
+
+  friendsImg.src = img;
+  friendsItemTitle.textContent = name;
+  friendsItemLink.textContent = 'Learn more'
+
+  friendsItemContent.appendChild(friendsItemTitle)
+  friendsItemContent.appendChild(friendsItemLink)
+  frindesImgWrap.appendChild(friendsImg)
+  friendsItem.appendChild(frindesImgWrap)
+  friendsItem.appendChild(friendsItemContent)
+  return friendsItem;
+}
+
+function appendFrinedItem() {
+  let friendsItem = getFriendsItem();
+  let friendsItemFragment = document.createDocumentFragment();
+
+  for (let itemData of friendsItem) {
+    let item = createFriendsItem(itemData);
+    friendsItemFragment.appendChild(item);
+  }
+  friendsList.innerHTML = '';
+  friendsList.appendChild(friendsItemFragment);
 }
 
 
