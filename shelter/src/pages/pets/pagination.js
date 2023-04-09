@@ -41,16 +41,16 @@ function loadWindowHandler() {
   appendFrinedItem()
 }
 function resizeWindowHandler() {
-  // if (currentWidthWindow >= 769) {
-  //   sortingFriendItem(6, 8, dataFrinedsItem.one)
-  //   return 6
-  // }
-  // if (currentWidthWindow <= 768 && currentWidthWindow >= 321) {
-  //   sortingFriendItem(8, 6, dataFrinedsItem.second)
-  //   return 8
-  // }
-  // sortingFriendItem(16, 3, dataFrinedsItem.third)
-  // return 16
+  let currentWidthWindow = document.documentElement.clientWidth;
+  if (currentWidthWindow >= 769) {
+    appendFrinedItem()
+    return
+  }
+  if (currentWidthWindow <= 768 && currentWidthWindow >= 321) {
+    appendFrinedItem()
+    return
+  }
+  appendFrinedItem()
 }
 
 function loadDataFriendsItem() {
