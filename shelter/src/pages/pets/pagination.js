@@ -6,9 +6,35 @@ const dataFrinedsItem = {
   third: []
 }
 const friendsList = document.querySelector('.friends__list');
+const paginationList = document.querySelector('.pagination__list');
+const btnOnePrev = document.querySelector('.pagination__link-oneprev');
+const btnManyPrev = document.querySelector('.pagination__link-manyprev');
+const btnOneNext = document.querySelector('.pagination__link-onenext');
+const btnManyNext = document.querySelector('.pagination__link-manynext');
+const managePaginationBtns = {
+  onBtnsPrev() {
+    btnManyPrev.classList.remove('pagination__link_disabled')
+    btnOnePrev.classList.remove('pagination__link_disabled')
+  },
+  onBtnsNext() {
+    btnOneNext.classList.remove('pagination__link_disabled')
+    btnManyNext.classList.remove('pagination__link_disabled')
+  },
+  offBtnsPrev() {
+    btnManyPrev.classList.add('pagination__link_disabled')
+    btnOnePrev.classList.add('pagination__link_disabled')
+  },
+  offBtnsNext() {
+    btnOneNext.classList.add('pagination__link_disabled')
+    btnManyNext.classList.add('pagination__link_disabled')
+  }
+}
+const elPage = document.querySelector('.pagination__num')
+let page = 0;
 
 window.addEventListener('load', loadWindowHandler);
 window.addEventListener('resize', resizeWindowHandler);
+paginationList.addEventListener('click', paginationBtnClickHandler);
 
 function loadWindowHandler() {
   loadDataFriendsItem()
@@ -117,8 +143,19 @@ function createFriendsItem({ name, img }) {
   return friendsItem;
 }
 
-function appendFrinedItem() {
-  let friendsItem = getFriendsItem();
+function getAmountPage() {
+  let currentWidthWindow = document.documentElement.clientWidth;
+  if (currentWidthWindow >= 769) {
+    return 6
+  }
+  if (currentWidthWindow <= 768 && currentWidthWindow >= 321) {
+    return 8
+  }
+  return 16
+}
+
+function appendFrinedItem(page = 0) {
+  let friendsItem = getFriendsItem(page);
   let friendsItemFragment = document.createDocumentFragment();
 
   for (let itemData of friendsItem) {
@@ -127,7 +164,65 @@ function appendFrinedItem() {
   }
   friendsList.innerHTML = '';
   friendsList.appendChild(friendsItemFragment);
+  console.log(dataFrinedsItem)
 }
 
+function paginationBtnClickHandler(e) {
+  e.preventDefault()
+  let paginationBtnOnePrev = e.target.closest('.pagination__link-oneprev');
+  let paginationBtnManyPrev = e.target.closest('.pagination__link-manyprev');
+  let paginationBtnOneNext = e.target.closest('.pagination__link-onenext');
+  let paginationBtnManyNext = e.target.closest('.pagination__link-manynext');
+  let pages = getAmountPage();
+
+  if (paginationBtnOneNext) {
+    if (page !== pages - 1) {
+      page++;
+      appendFrinedItem(page)
+      managePaginationBtns.onBtnsNext()
+      managePaginationBtns.onBtnsPrev()
+    }
+    else {
+      managePaginationBtns.offBtnsNext()
+      managePaginationBtns.onBtnsPrev()
+    }
+  }
+  if (paginationBtnManyNext) {
+    if (page !== pages - 1) {
+      page = pages - 1;
+      appendFrinedItem(page)
+      managePaginationBtns.offBtnsNext()
+      managePaginationBtns.onBtnsPrev()
+    }
+  }
+
+  if (paginationBtnOnePrev) {
+    if (page !== 0) {
+      page--;
+      appendFrinedItem(page)
+      managePaginationBtns.offBtnsPrev()
+      managePaginationBtns.onBtnsNext()
+    }
+    else {
+      managePaginationBtns.offBtnsPrev()
+      managePaginationBtns.onBtnsNext()
+    }
+  }
+  if (paginationBtnManyPrev) {
+    if (page !== 0) {
+      page = 0;
+      appendFrinedItem(page)
+      managePaginationBtns.offBtnsPrev()
+      managePaginationBtns.onBtnsNext()
+    }
+
+  }
+  showCurrentPage(elPage, page)
+}
+
+function showCurrentPage(elPage, currPage) {
+  currPage++;
+  elPage.textContent = currPage
+}
 
 
