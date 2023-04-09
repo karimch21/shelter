@@ -28,139 +28,57 @@ window.addEventListener('resize', () => {
 })
 
 function clickBtnNextHandler() {
-  generateNextSliderItem()
+  console.log('NEXT')
+  if (nextSlides.length === 0) {
+    console.log(9999)
+    generateNextSliderItem()
+    const sliders = document.querySelectorAll('.slider');
+    if (sliders.length > 1) sliders[0].remove()
+    for (let slider of sliders) {
+      slider.classList.remove('slider_show-next')
+      slider.classList.remove('slider_show-prev')
+      slider.classList.remove('sldider_hide-next')
+      slider.classList.add('slider_hide-prev')
+    }
+    console.log(111)
+    sliderItemsBox.appendChild(createNextSlides())
 
-  const sliders = document.querySelectorAll('.slider');
-  if (sliders.length > 1) sliders[0].remove()
-  for (let slider of sliders) {
-    slider.classList.remove('slider_show-next')
-    slider.classList.remove('slider_show-prev')
-    slider.classList.remove('sldier_hide-next')
-    slider.classList.add('sldier_hide-prev')
+    return
   }
 
-  sliderItemsBox.appendChild(createNextSlides())
+  const sliders = document.querySelectorAll('.slider');
+  console.log(1212)
+  sliders[0].classList.remove('slider_show-prev')
+  sliders[0].classList.add('slider_hide-prev')
+  sliders[1].classList.remove('slider_hide-next')
+  sliders[1].classList.add('slider_show-next')
+  prevSlides = JSON.parse(JSON.stringify(nextSlides))
+  slidesPrevName = JSON.parse(JSON.stringify(slidesNextName))
+  nextSlides = []
+  slidesNextName = []
+
+  console.log('curcur ', slidesCurrName)
 }
+
 function clickBtnPrevHandler() {
-  generatePrevSliderItem()
-  const sliders = document.querySelectorAll('.slider');
-  if (sliders.length > 1) sliders[sliders.length - 1].remove()
-  for (let slider of sliders) {
-    slider.classList.remove('slider_show-prev')
-    slider.classList.remove('sldier_hide-prev')
-    slider.classList.remove('.slider_show-next')
-    slider.classList.add('sldier_hide-next')
+  if (slidesNextName.length === 0) {
+    generatePrevSliderItem()
   }
 
-  sliderItemsBox.prepend(createPrevSlides())
+  const sliders = document.querySelectorAll('.slider');
+
+  for (let slider of sliders) {
+    slider.classList.remove('slider_show-prev')
+    slider.classList.remove('slider_hide-prev')
+    slider.classList.remove('.slider_show-next')
+
+  }
+  sliders[0].classList.add('slider_show-prev')
+  sliders[1].classList.remove('slider_show-next')
+  sliders[1].classList.add('slider_hide-next')
 
 }
 
-function createNewSliderItems() {
-  let c = document.createDocumentFragment()
-  let a = document.createElement('div');
-  a.classList.add('slider', 'friends__slider', 'slider_show-next', 'slider_delay')
-  let items = `
-
-  <div class="slider__item friends__slider-item">
-    <div class="slider__img-box">
-      <img src="https://avatars.dzeninfra.ru/get-zen_doc/1528313/pub_5e4bc2106948c51ea07b55c8_5e4bc273f2bc6f629aed87c5/scale_1200" alt="" class="slider__img friends__slider-img">
-    </div>
-    <div class="slider__content friends__slider-content">
-      <div class="slider__title friends__slider-title">
-        Katrine
-      </div>
-      <a href="#" class="friends__slider-link">
-        Learn more
-      </a>
-    </div>
-  </div>
-
-  <div class="slider__item friends__slider-item">
-    <div class="slider__img-box">
-      <img src="https://img.kanal-o.ru/img/2020-03-02/fmt_89_024_shutterstock_1224903712_2.jpg" alt="" class="slider__img friends__slider-img">
-    </div>
-    <div class="slider__content friends__slider-content">
-      <div class="slider__title friends__slider-title">
-        Jennifer
-      </div>
-      <a href="#" class="friends__slider-link">
-        Learn more
-      </a>
-    </div>
-  </div>
-
-  <div class="slider__item friends__slider-item">
-    <div class="slider__img-box">
-      <img src="https://img.kanal-o.ru/img/2020-03-02/fmt_89_024_shutterstock_1224903712_2.jpg" alt="" class="slider__img friends__slider-img">
-    </div>
-    <div class="slider__content friends__slider-content">
-      <div class="slider__title friends__slider-title">
-        Woody
-      </div>
-      <a href="#" class="friends__slider-link">
-        Learn more
-      </a>
-    </div>
-  </div>
-`
-  a.innerHTML = items;
-  c.appendChild(a)
-  return c
-}
-function createNewPrevSliderItems() {
-  let c = document.createDocumentFragment()
-  let a = document.createElement('div');
-  a.classList.add('slider', 'friends__slider', 'slider_show-prev', 'slider_delay')
-  let items = `
-
-  <div class="slider__item friends__slider-item">
-    <div class="slider__img-box">
-    1
-      <img src="https://avatars.dzeninfra.ru/get-zen_doc/1528313/pub_5e4bc2106948c51ea07b55c8_5e4bc273f2bc6f629aed87c5/scale_1200" alt="" class="slider__img friends__slider-img">
-    </div>
-    <div class="slider__content friends__slider-content">
-      <div class="slider__title friends__slider-title">
-        Katrine
-      </div>
-      <a href="#" class="friends__slider-link">
-        Learn more
-      </a>
-    </div>
-  </div>
-
-  <div class="slider__item friends__slider-item">
-    <div class="slider__img-box">
-      <img src="https://img.kanal-o.ru/img/2020-03-02/fmt_89_024_shutterstock_1224903712_2.jpg" alt="" class="slider__img friends__slider-img">
-    </div>
-    <div class="slider__content friends__slider-content">
-      <div class="slider__title friends__slider-title">
-        Jennifer
-      </div>
-      <a href="#" class="friends__slider-link">
-        Learn more
-      </a>
-    </div>
-  </div>
-
-  <div class="slider__item friends__slider-item">
-    <div class="slider__img-box">
-      <img src="https://img.kanal-o.ru/img/2020-03-02/fmt_89_024_shutterstock_1224903712_2.jpg" alt="" class="slider__img friends__slider-img">
-    </div>
-    <div class="slider__content friends__slider-content">
-      <div class="slider__title friends__slider-title">
-        Woody
-      </div>
-      <a href="#" class="friends__slider-link">
-        Learn more
-      </a>
-    </div>
-  </div>
-`
-  a.innerHTML = items;
-  c.appendChild(a)
-  return c
-}
 
 function createSlides({ name, img }) {
   let slide = document.createElement('div');
@@ -232,6 +150,7 @@ function checkAmountSlides() {
 
 function generateNextSliderItem() {
   // нужна проверка на налчие в массиве next, если есть, то они становится curr, а next очищается и карточки не генерируются 
+
   let i = 0;
   let amountSlide = checkAmountSlides();
   slidesPrevName = JSON.parse(JSON.stringify(slidesCurrName))
@@ -243,6 +162,7 @@ function generateNextSliderItem() {
     console.log(slidesCurrName, currSlides, slidesNextName, 1234)
     slidesNextName = []
     nextSlides = []
+    console.log(88888888)
     return
   }
 
@@ -269,8 +189,14 @@ function generateNextSliderItem() {
   }
 }
 
+// if (nextSlides.length > 0) sliderItemsBox.prepend(createPrevSlides())
+//   if (sliders.length > 1 && nextSlides.length > 0 && prevSlides.length > 0) {
+//     sliders[sliders.length - 1].remove()
+//   }
+
 function generatePrevSliderItem() {
   // нужна проверка на налчие в массиве prev, если есть, то они становится curr, а prev очищается и карточки не генерируются 
+  const sliders = document.querySelectorAll('.slider');
   let i = 0;
   let amountSlide = checkAmountSlides();
   slidesNextName = JSON.parse(JSON.stringify(slidesCurrName))
@@ -282,6 +208,7 @@ function generatePrevSliderItem() {
     console.log('curr, prev-btn', slidesCurrName)
     slidesPrevName = []
     prevSlides = []
+    console.log(22222222)
     return
   }
 
@@ -289,14 +216,20 @@ function generatePrevSliderItem() {
     let randomNum = getRandomNum(0, cards.length - 1);
     if (!slidesCurrName.includes(cards[randomNum].name) && !slidesNextName.includes(cards[randomNum].name && !slidesPrevName.includes(cards[randomNum].name))) {
       if (!slidesPrevName.includes(cards[randomNum].name)) {
+
+
+
         slidesPrevName.push(cards[randomNum].name)
         prevSlides.push(cards[randomNum])
+
+
         i++
       }
     }
   }
 
   if (i === amountSlide) {
+
     console.log('prev, prev-btn', slidesPrevName)
     nextSlides = JSON.parse(JSON.stringify(currSlides))
     currSlides = JSON.parse(JSON.stringify(prevSlides))
@@ -305,6 +238,7 @@ function generatePrevSliderItem() {
     console.log('next, prev-btn', slidesNextName)
     prevSlides = []
     slidesPrevName = []
+
   }
 }
 
@@ -319,6 +253,15 @@ function generateCurrentSliderItem() {
       i++
     }
   }
+  let slider = document.createElement('div');
+  slider.classList.add('slider', 'friends__slider')
+
+  for (let i = 0; i < currSlides.length; i++) {
+    let slide = createSlides(currSlides[i]);
+    slider.appendChild(slide);
+  }
+  console.log(11111111, currSlides)
+  sliderItemsBox.appendChild(slider)
   console.log(slidesCurrName, 'currName')
   console.log(currSlides)
 }

@@ -109,47 +109,47 @@
 .slider-box
   @include flexMixin
   margin-right: 5%
-.sldier_hide-prev
+.slider_hide-prev
   margin-right: 5%
-  animation: hidden 1s
+  animation: slider_hide-prev 1s
   animation-fill-mode: forwards
 .slider
   flex-shrink: 0
 
 .slider_show-next
-  animation: show 1s
+  animation: slider_show-next 1s
   animation-fill-mode: forwards
 
 .slider_show-prev
-  animation: show-prev 1s
+  animation: slider_show-prev 1s
   animation-fill-mode: forwards
 
-.sldier_hide-next
+.slider_hide-next
   margin-left: 6%
-  animation: hidden-next 1s
+  animation: slider_hide-next 1s
   animation-fill-mode: forwards
 
-@keyframes show
+@keyframes slider_show-next
   0%
-    transform: translateX(0%)
+    transform: translateX(100%)
   100%
     transform: translateX(-100%)
-@keyframes show-prev
+@keyframes slider_show-prev
   0%
     transform: translateX(-100%)
   100%
     transform: translateX(0%)
-@keyframes hidden
+@keyframes slider_hide-prev
   0%
     transform: translateX(0%)
   100%
     transform: translateX(-100%)
 
-@keyframes hidden-next
+@keyframes slider_hide-next
   0%
     transform: translateX(-100%)
   100%
-    transform: translateX(0%)
+    transform: translateX(100%)
 
 .friends__slider-item
   width: 270px
