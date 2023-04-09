@@ -2,34 +2,45 @@ const menu = document.querySelector('.menu');
 const btnMenu = document.querySelector('.burger-menu');
 
 btnMenu.addEventListener('click', () => {
-  clickBtnMenuHandler(btnMenu, menu, onOffLockScrollBody)
+  openMenu()
 });
 
-window.addEventListener('click', clickWindowHandler)
+window.addEventListener('click', (e) => {
+  closeMenu(e)
+})
 
-function clickBtnMenuHandler(btnMenu, menu, bodyStyle) {
+
+function openMenu() {
   btnMenu.classList.toggle('burger-menu_active')
   menu.classList.toggle('menu_active')
-  bodyStyle()
-}
-
-function onOffLockScrollBody() {
   document.body.classList.toggle('body_lock')
 }
 
-function clickWindowHandler(e) {
-  closeMenu(e, menu, btnMenu)
+
+function onLockScrollBody() {
+  document.body.classList.add('body_lock')
+}
+function offLockScrollBody() {
+  document.body.classList.remove('body_lock')
 }
 
-function closeMenu(e, menu, btnMenu) {
+
+function closeMenu(e) {
   const targetBtnMenu = e.target.closest('.burger-menu');
   const targetMenu = e.target.closest('.menu');
   const targetMenuLink = e.target.closest('.menu__link');
 
   if (targetMenuLink) {
-    clickBtnMenuHandler(btnMenu, menu, onOffLockScrollBody)
+    removeOpenStylesMenu()
   }
   if (!targetMenu && !targetBtnMenu) {
-    clickBtnMenuHandler(btnMenu, menu, onOffLockScrollBody)
+    removeOpenStylesMenu()
   }
+}
+
+
+function removeOpenStylesMenu() {
+  btnMenu.classList.remove('burger-menu_active')
+  menu.classList.remove('menu_active')
+  offLockScrollBody()
 }
