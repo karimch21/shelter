@@ -54,6 +54,11 @@
   width: 100%
   font-size: 0
 
+.friends__img
+  min-height: 270px
+  max-height: 270px
+  object-fit: cover
+
 .friends__item-content
   padding: 30px 41px
 
@@ -97,5 +102,9 @@
     background-color: #F1CDB3
   &__link_disabled
     border: 2px solid #CDCDCD
+  & svg path
+    fill: #000
+  &__link_disabled svg path
+    fill: #CDCDCD
 
 @import ./media
