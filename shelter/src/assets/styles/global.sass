@@ -22,6 +22,7 @@ body
   font-weight: 400
   font-family: 'Georgia'
   font-size: 16px
+  overflow-y: auto
 
 ul,li,p,div, h1,h2,h3,h4,h5,h6,section,article,main,*
   padding: 0
@@ -115,6 +116,19 @@ button
   &_active
     transform: rotate(90deg)
 
+.body_lock
+  overflow-y: hidden
+  position: relative
+  &::after
+    content: ""
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background: rgba(41, 41, 41, 0.6)
+    z-index: 1
+
 @import ./header
 @import ./menu
 @import ./footer
@@ -129,18 +143,6 @@ button
     color: #F1CDB3
 
 @media (max-width: 750px)
-  .body_lock
-    overflow-y: hidden
-    position: relative
-    &::after
-      content: ""
-      position: absolute
-      left: 0
-      top: 0
-      width: 100%
-      height: 100%
-      background: rgba(41, 41, 41, 0.6)
-      z-index: 1
   .burger-menu
     display: block
     z-index: 6
