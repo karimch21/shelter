@@ -124,6 +124,7 @@ function createFriendsItem({ name, img }) {
   let friendsItemTitle = document.createElement('div');
   let friendsItemLink = document.createElement('a');
 
+  friendsItem.dataset.name = name;
   friendsItem.classList.add('friends__item')
   frindesImgWrap.classList.add('frindes__img-wrap')
   friendsImg.classList.add('friends__img')
