@@ -105,6 +105,7 @@ function createSlides({ name, img }) {
   let slideTitle = document.createElement('div');
   let slideLink = document.createElement('a')
 
+  slide.dataset.name = name;
   slide.classList.add('slider__item', 'friends__slider-item')
   slideImgBox.classList.add('slider__img-box')
   slideImg.classList.add('slider__img', 'friends__slider-img')
