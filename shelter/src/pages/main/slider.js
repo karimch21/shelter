@@ -155,10 +155,10 @@ function getRandomNum(min, max) {
 
 function checkAmountSlides() {
   const currentWidthWindow = document.documentElement.clientWidth;
-  if (currentWidthWindow > 1050) {
+  if (currentWidthWindow > 1085) {
     return 3
   }
-  else if (currentWidthWindow <= 1050 && currentWidthWindow > 600) {
+  else if (currentWidthWindow <= 1084 && currentWidthWindow > 600) {
     console.log(2, 'item')
     return 2
   }
