@@ -5,6 +5,7 @@ import cards from './bdCard'
     acc[obj.name] = obj;
     return acc;
   }, {});
+  const popupBox = document.querySelector('.popup-box');
   const popupTitle = document.querySelector('.popup__title-title');
   const popupImg = document.querySelector('.popup__img');
   const popupTitleText = document.querySelector('.popup__title-text');
@@ -56,7 +57,7 @@ import cards from './bdCard'
     popupItemSpan[3].textContent = (data.parasites).join(', ');
     popupItemHead[3].textContent = 'Parasites:'
 
-    popup.classList.add('popup_active');
+    popupBox.classList.add('popup-box_active');
     popupWrap.classList.add('popup-wrap_active')
     lockScrollBody()
   }
@@ -74,14 +75,16 @@ import cards from './bdCard'
 
   function lockScrollBody() {
     document.body.style.overflowY = 'hidden'
+    document.body.classList.add('body_bg')
   }
   function unlockScrollBody() {
     document.body.style = ''
+    document.body.classList.remove('body_bg')
   }
 
   function closePopup() {
     unlockScrollBody()
-    popup.classList.remove('popup_active');
+    popupBox.classList.remove('popup-box_active');
     popupWrap.classList.remove('popup-wrap_active')
     cleareDataPopup()
   }
