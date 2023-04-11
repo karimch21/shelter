@@ -51,9 +51,9 @@ import cards from './bdCard'
     popupItemHead[0].textContent = 'Age:';
     popupItemSpan[1].textContent = data.inoculations;
     popupItemHead[1].textContent = 'Inoculations:'
-    popupItemSpan[2].textContent = (data.diseases).join(',');
+    popupItemSpan[2].textContent = (data.diseases).join(', ');
     popupItemHead[2].textContent = 'Diseases:'
-    popupItemSpan[3].textContent = (data.parasites).join(',');
+    popupItemSpan[3].textContent = (data.parasites).join(', ');
     popupItemHead[3].textContent = 'Parasites:'
 
     popup.classList.add('popup_active');

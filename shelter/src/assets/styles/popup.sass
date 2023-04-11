@@ -62,8 +62,12 @@
   margin-right: 29px
   width: 100%
   max-width: 500px
-
-// .popup__img
+  min-height: 460px
+  overflow: hidden
+.popup__img
+  display: block
+  object-fit: cover
+  min-height: 460px
 
 .popup__content
   max-width: 350px
@@ -117,3 +121,66 @@
     left: 0
     top: 50%
     transform: translateY(-50%)
+
+@media (max-width: 830px)
+  .popup
+    padding: 61px
+  .popup__text
+    margin-bottom: 20px
+    font-size: 13px
+    line-height: 14px
+  .popup__title
+    margin-bottom: 20px
+  .popup__img-wrap
+    margin-right: 11px
+    max-width: 350px
+    min-height: 350px
+  .popup__img
+    max-width: 350px
+    min-height: 350px
+  .popup__body
+    padding: 10px
+  .popup__item + .popup__item
+    margin-top: 6px
+  .popup__item-span
+    padding-left: 6px
+
+@media (max-width: 680px)
+  .poup__inner
+    flex-direction: column
+    overflow-y: auto
+  .popup__img-wrap
+    margin-right: 0px
+    max-width: 100%
+    max-height: auto
+    min-height: auto
+  .popup__img
+    max-width: 100%
+    min-height: 100%
+    height: 100%
+  .popup__content
+    max-width: 100%
+    width: 100%
+  .popup__title
+    text-align: center
+
+@media (max-width: 450px)
+  .popup__img-wrap
+    display: none
+  .popup__text
+    margin-bottom: 24px
+  .popup__body
+    border-radius: 10px
+  .popup
+    padding: 11px
+  .popup__btn
+    top: -43px
+    right: 10px
+
+@media (max-width: 320px)
+  .popup
+    max-width: 240px
+  .popup__btn
+    right: -22px
+  .popup__text
+    text-align: justify
