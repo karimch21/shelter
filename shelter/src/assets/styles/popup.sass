@@ -1,55 +1,83 @@
 .popup-wrap
-  &::before
+  position: fixed
+  left: 50%
+  top: 50%
+  transform: translate(-200%, -50%)
+  width: 100%
+  height: 100%
+  z-index: 14
+  transition: transform 0.5s
+  width: 100%
+  max-width: 900px
+  max-height: 500px
+  height: 100%
+  &_active
+    position: fixed
+    width: 100%
+    height: 100%
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+  &_active::before
+    opacity: 1
+    z-index: 1
+
+.body_bg
+   &::before
     content: ""
     background: rgba(41, 41, 41, 0.6)
-    opacity: 0
-    z-index: -11
+    opacity: 1
+    z-index: 1
     position: fixed
     width: 100%
     height: 100%
     top: 0
     left: 0
-  &_active::before
-    opacity: 1
-    z-index: 1
+
+.popup-box
+  height: 100%
+//   position: absolute
+//   left: 50%
+//   top: 50%
+//   transform: translate(-200%, -50%)
+//   width: 100%
+//   height: 100%
+//   z-index: 14
+//   transition: transform 0.5s
+//   overflow-y: auto
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   &_active
+//     transform: translate(-50%,-50%)
+//     transition: transform 0.5s
 
 .popup
+  height: 100%
+  overflow-x: hidden
+  overflow-y: auto
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04)
+  border-radius: 20px
   padding: 20px
   padding-top: 50px
-  display: flex
-  justify-content: center
-  align-items: center
-  position: fixed
-  max-width: 1000px
+  background-color: #fff
+  max-width: 900px
   width: 100%
-  left: 50%
-  top: 50%
-  transform: translate(-200%,-50%)
-  transition: transform 0.5s
-  z-index: 15
-  &_active
-    transform: translate(-50%,-50%)
-    transition: transform 0.5s
   &__btn
     width: 52px
     height: 52px
     position: absolute
-    top: 0
-    right: 12px
+    top: -49px
+    right: -32px
     display: flex
     align-items: center
     justify-content: center
     border: 2px solid #F1CDB3
     border-radius: 100px
     cursor: pointer
-  &__body
-    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04)
-    border-radius: 20px
-    padding: 20px
-    padding-top: 50px
-    background-color: #fff
-    max-width: 900px
-    width: 100%
+  // &__body
+   
+  
 
 //   &__btn
 
@@ -57,17 +85,19 @@
   display: flex
   justify-content: center
   align-items: flex-start
+  overflow-y: auto
 
 .popup__img-wrap
   margin-right: 29px
   width: 100%
   max-width: 500px
-  min-height: 460px
+  max-height: 401px
   overflow: hidden
 .popup__img
-  display: block
   object-fit: cover
-  min-height: 460px
+  width: 100%
+  height: 100%
+  max-width: 100%
 
 .popup__content
   max-width: 350px
@@ -123,8 +153,6 @@
     transform: translateY(-50%)
 
 @media (max-width: 830px)
-  .popup
-    padding: 61px
   .popup__text
     margin-bottom: 20px
     font-size: 13px
@@ -138,8 +166,8 @@
   .popup__img
     max-width: 350px
     min-height: 350px
-  .popup__body
-    padding: 10px
+  .popup 
+    padding-top: 17px
   .popup__item + .popup__item
     margin-top: 6px
   .popup__item-span
@@ -177,10 +205,30 @@
     top: -43px
     right: 10px
 
+@media (max-width: 1020px)
+  .popup-wrap
+    padding: 53px
+  .popup__btn 
+    top: 4px
+    right: 12px
+
 @media (max-width: 320px)
   .popup
     max-width: 240px
+  .popup-wrap 
+    padding: 40px
   .popup__btn
-    right: -22px
+    right: 12px
+    top: -10px
   .popup__text
     text-align: justify
+
+@media (max-height: 600px)
+  .popup-wrap
+    padding: 53px
+  .popup-wrap 
+    max-width: 953px
+    max-height: 553px
+  .popup__btn 
+    top: 4px
+    right: 12px
