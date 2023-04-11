@@ -2,11 +2,11 @@
   position: fixed
   left: 50%
   top: 50%
-  transform: translate(-200%, -50%)
   width: 100%
   height: 100%
   z-index: 14
-  transition: transform 0.5s
+  transform: translate(-2000%, -50%)
+  transition: transform 1s
   width: 100%
   max-width: 900px
   max-height: 500px
@@ -17,10 +17,14 @@
     height: 100%
     left: 50%
     top: 50%
+    transition: transform 0.5s
     transform: translate(-50%, -50%)
   &_active::before
     opacity: 1
     z-index: 1
+
+
+    
 
 .body_bg
    &::before

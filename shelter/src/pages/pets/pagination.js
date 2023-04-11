@@ -27,7 +27,31 @@ const managePaginationBtns = {
   offBtnsNext() {
     btnOneNext.classList.add('pagination__link_disabled')
     btnManyNext.classList.add('pagination__link_disabled')
-  }
+  },
+  offBtnsOneNext() {
+    btnOneNext.classList.add('pagination__link_disabled')
+  },
+  offBtnsMoreNext() {
+    btnManyNext.classList.add('pagination__link_disabled')
+  },
+  onBtnsMoreNext() {
+    btnManyNext.classList.remove('pagination__link_disabled')
+  },
+  onBtnsOneNext() {
+    btnOneNext.classList.remove('pagination__link_disabled')
+  },
+  offBtnsOnePrev() {
+    btnOnePrev.classList.add('pagination__link_disabled')
+  },
+  offBtnsMorePrev() {
+    btnManyPrev.classList.add('pagination__link_disabled')
+  },
+  onBtnsMorePrev() {
+    btnManyPrev.classList.remove('pagination__link_disabled')
+  },
+  onBtnsOnePrev() {
+    btnOnePrev.classList.remove('pagination__link_disabled')
+  },
 }
 const elPage = document.querySelector('.pagination__num')
 let page = 0;
@@ -182,10 +206,10 @@ function paginationBtnClickHandler(e) {
       appendFrinedItem(page)
       managePaginationBtns.onBtnsNext()
       managePaginationBtns.onBtnsPrev()
-    }
-    else {
-      managePaginationBtns.offBtnsNext()
-      managePaginationBtns.onBtnsPrev()
+      if(page === pages - 1){
+        managePaginationBtns.offBtnsNext()
+        managePaginationBtns.onBtnsPrev()
+      }
     }
   }
   if (paginationBtnManyNext) {
@@ -201,13 +225,13 @@ function paginationBtnClickHandler(e) {
     if (page !== 0) {
       page--;
       appendFrinedItem(page)
-      managePaginationBtns.offBtnsPrev()
       managePaginationBtns.onBtnsNext()
+      if(page === 0){
+        managePaginationBtns.offBtnsPrev()
+        managePaginationBtns.onBtnsNext()
+      }
     }
-    else {
-      managePaginationBtns.offBtnsPrev()
-      managePaginationBtns.onBtnsNext()
-    }
+   
   }
   if (paginationBtnManyPrev) {
     if (page !== 0) {
